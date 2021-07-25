@@ -32,11 +32,13 @@ public class CountryController {
 
 	@RequestMapping(value = "/getCountry/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
 	public Country getCountryById(@PathVariable int id) {
+		System.out.println("Inside getCountryById method");
 		return countryService.getCountry(id);
 	}
 
 	@RequestMapping(value = "/addCountry", method = RequestMethod.POST, headers = "Accept=application/json")
 	public String addCountry(@ModelAttribute("country") Country country) {	
+		System.out.println("Inside addCountry method");
 		if(country.getId()==0)
 		{
 			countryService.addCountry(country);
@@ -45,7 +47,7 @@ public class CountryController {
 		{	
 			countryService.updateCountry(country);
 		}
-		
+		System.out.println("End addCountry method");
 		return "redirect:/getAllCountries";
 	}
 
