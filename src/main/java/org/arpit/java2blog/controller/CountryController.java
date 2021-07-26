@@ -21,7 +21,7 @@ public class CountryController {
 	CountryService countryService;
 	
 	@RequestMapping(value = "/getAllCountries", method = RequestMethod.GET, headers = "Accept=application/json")
-	public String getCountries(Model model) {
+	public  getCountries(Model model) {
 		List<Country> listOfCountries = countryService.getAllCountries();
 		model.addAttribute("country", new Country());
 		model.addAttribute("listOfCountries", listOfCountries);
