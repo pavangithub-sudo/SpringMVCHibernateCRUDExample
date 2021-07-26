@@ -22,11 +22,9 @@ public class CountryController {
 	
 	@RequestMapping(value = "/getAllCountries", method = RequestMethod.GET, headers = "Accept=application/json")
 	public String getCountries(Model model) {
-		System.out.println("Inside getCountry method");
 		List<Country> listOfCountries = countryService.getAllCountries();
 		model.addAttribute("country", new Country());
 		model.addAttribute("listOfCountries", listOfCountries);
-		System.out.println("End of getCountry method");
 		return "countryDetails";
 	}
 
